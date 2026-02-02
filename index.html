@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine</title>
+  <style>
+    body {
+      background: #f7c6d0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #Si {
+      background: #ff4d6d;
+      color: white;
+      position: relative;
+      left: -95px;
+    }
+
+    #no {
+      background: #ccc;
+      position: absolute;
+      top: 52%;
+      left: 55%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>¿Quieres ser mi San Valentín? 💖</h1>
+    <button id="Si" onclick="SiClick()">Si</button>
+    <button id="no" onclick="noClick()">No</button>
+  </div>
+
+  <script>
+    let noCount = 0;
+
+    function noClick() {
+      const noBtn = document.getElementById("no");
+      noCount++;
+
+      if (noCount === 1) {
+        noBtn.innerText = "Segura?";
+      } else {
+        noBtn.innerText = "Segura.. 😔";
+      }
+
+      const x = Math.random() * (window.innerWidth - 120);
+      const y = Math.random() * (window.innerHeight - 60);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    function SiClick() {
+      document.body.innerHTML = `
+        <h1 style="color:#ff4d6d; text-align:center;">
+          Yaaay! Sabía que dirías que sí 😌💘
+        </h1>`;
+    }
+  </script>
+
+</body>
+</html>
